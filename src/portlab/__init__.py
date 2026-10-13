@@ -13,7 +13,7 @@ are reported as *positive numbers = losses*. In ``portlab.risk``,
 confidence level (0.95). Each module's docstring states which.
 """
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 from . import (attribution, backtest, covariance, metrics, optimize,
                rebalance, returns, risk)

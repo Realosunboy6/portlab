@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "portlab"
-version = "0.1.0"
+version = "0.1.1"
 description = "Portfolio risk and optimization library — VaR/ES estimation, VaR backtesting, tail diagnostics, and portfolio optimization with a documented validation record."
 readme = "README.md"
 license = { text = "MIT" }
@@ -18,9 +18,18 @@ dependencies = [
 ]
 keywords = ["portfolio", "risk", "var", "backtesting", "optimization", "finance"]
 classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Financial and Insurance Industry",
+    "Intended Audience :: Science/Research",
     "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
     "Topic :: Office/Business :: Financial :: Investment",
+    "Topic :: Scientific/Engineering :: Mathematics",
 ]
 
 [project.optional-dependencies]
