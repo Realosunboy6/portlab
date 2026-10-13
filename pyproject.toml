@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "portlab"
-version = "0.1.1"
+version = "0.1.2"
 description = "Portfolio risk and optimization library — VaR/ES estimation, VaR backtesting, tail diagnostics, and portfolio optimization with a documented validation record."
 readme = "README.md"
 license = { text = "MIT" }
