@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: "If you use portlab in research, please cite it as below."
 title: "portlab: Portfolio risk and optimization library"
-version: 0.2.1
+version: 0.2.2
 date-released: 2026-10-16
 license: MIT
 url: "https://github.com/Realosunboy6/portlab"

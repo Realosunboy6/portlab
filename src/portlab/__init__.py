@@ -1,4 +1,4 @@
-"""portlab — portfolio analysis toolkit (open-source core of the
+"""portlab: portfolio analysis toolkit (open-source core of the
 RiskLens / Sentinel project).
 
 High-level API:
@@ -6,7 +6,7 @@ High-level API:
     from portlab import factor, analytics, tactical, plots
 """
 
-__version__ = "0.2.1"
+__version__ = "0.2.2"
 
 from . import (analytics, backtest, covariance, factor, metrics, montecarlo,
                optimize, plots, report, returns, tactical, alm, derivatives,
