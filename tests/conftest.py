@@ -37,24 +37,23 @@ def mu_cov(returns):
     from portlab.optimize import mean_cov
     return mean_cov(returns)
 
+# ---- public-release declaration ---------------------------------------
+# test_tbill_download fetches a live T-bill series from FRED via
+# pandas_datareader. It is the suite's only network test. It is
+# skipped by default so the shipped suite runs fully offline, and
+# runs when the user opts in:
+#     pip install "portlab[data]"
+#     PORTLAB_LIVE=1 pytest tests/test_riskfree.py
+import os as _os
 
-# --- public-core extraction note -------------------------------------
-# Two upstream tests exercise modules held back from the public
-# core (portlab.mpo, portlab.report). They are skipped here with
-# the reasons visible in the test report.
 import pytest as _pytest
 
 
-_HELD_BACK_TESTS = {
-    "test_generic_interface_with_mpo":
-        "requires portlab.mpo (held back from the public core)",
-    "test_tear_sheet_monthly_window_sensible":
-        "requires portlab.report (held back from the public core)",
-}
-
-
 def pytest_collection_modifyitems(items):
+    if _os.environ.get("PORTLAB_LIVE") == "1":
+        return
     for item in items:
-        if item.name in _HELD_BACK_TESTS:
+        if item.name == "test_tbill_download":
             item.add_marker(_pytest.mark.skip(
-                reason=_HELD_BACK_TESTS[item.name]))
+                reason="live-network test (FRED download); "
+                       "set PORTLAB_LIVE=1 to run it"))

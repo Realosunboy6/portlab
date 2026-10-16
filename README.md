@@ -18,8 +18,11 @@ pip install portlab
 ```
 
 Requires Python 3.10+. Core dependencies: numpy, pandas, scipy,
-scikit-learn. The CVaR/CDaR LP solvers use scipy; optional solver
-backends (cvxpy, OSQP, Gurobi) are imported lazily when requested.
+scikit-learn, statsmodels, plotly. The CVaR/CDaR LP solvers use
+scipy; optional solver backends (cvxpy, OSQP, Gurobi) are imported
+lazily when requested. Market-data loaders are also lazy: install
+`portlab[data]` for the yfinance / pandas-datareader / pyarrow
+stack used by `portlab.data`.
 
 From source instead:
 
@@ -79,6 +82,20 @@ library: cite conditional coverage, not Kupiec alone.
 | Covariance | `portlab.covariance` | Sample, Ledoit–Wolf shrinkage, semicovariance |
 | Backtesting | `portlab.backtest` | Portfolio backtests with rebalancing, rolling backtests, historical-episode stress |
 | Attribution | `portlab.attribution` | Brinson allocation/selection/interaction |
+| Monte Carlo & goals | `portlab.montecarlo` | Seeded simulation (bootstrap, block bootstrap, normal, Student-t, multi-asset statistical), withdrawal rules (fixed, percentage, guardrails, VPW, RMD), glide paths, goal probabilities |
+| Monitoring | `portlab.risk.monitor`, `portlab.risk.rebalance` | Fills + prices → daily risk report (the RiskLens watcher); drift tables and rebalance signals |
+| Factor models | `portlab.factor`, `portlab.optimize.riskfactor`, `portlab.data.factors` | Fama–French / Carhart regressions (Newey–West), rolling exposures, factor risk decomposition |
+| Tactical & indicators | `portlab.tactical`, `portlab.indicators` | MA timing, relative strength, dual momentum, target volatility; RSI, MACD, Bollinger, ATR, stochastic |
+| Derivatives | `portlab.derivatives` | Black–Scholes prices/Greeks, implied volatility, CRR binomial trees (American early exercise) |
+| ALM | `portlab.alm` | Liability schedules, present value, funded status, surplus optimization, hedge portfolios |
+| Tax | `portlab.taxlots`, `portlab.taxopt` | Lot ledger (FIFO/LIFO/HIFO/min-tax relief, wash-sale window), tax-aware sale plans and tax-aware optimization (min-tax is a greedy relief heuristic, documented as such) |
+| Multi-period optimization | `portlab.mpo` | Weight trajectories with L1 turnover (transaction-cost) penalties |
+| Stress & scenarios | `portlab.stress`, `portlab.scenarios` | Historical-episode shocks, filtered historical simulation (GARCH-residual scenarios), scenario VaR/ES |
+| Corporate actions & costs | `portlab.corpactions`, `portlab.costs` | Splits/dividends applied to positions with basis invariance; fixed/proportional/spread/impact cost models |
+| Data | `portlab.data` | Price/factor/macro loaders with local caching (Yahoo, Ken French, FRED); network deps are lazy — install `portlab[data]` |
+| Reports & charts | `portlab.report`, `portlab.plots` | HTML tear sheets and Plotly charts |
+| Analytics | `portlab.analytics` | Correlations, cointegration, PCA, performance tables, screeners |
+| Fill validation | `portlab.fillvalidate` | Pre-trade fill checks against prices and broker minimums |
 
 ## Conventions (read this before trusting a number)
 
@@ -98,11 +115,15 @@ library: cite conditional coverage, not Kupiec alone.
 
 ## Scope
 
-This is the public core of a larger private toolkit. Not included:
-live portfolio monitoring, broker integrations, tax-lot optimization,
-and forecasting/indicator tooling. The algorithms here are standard
-textbook methods (Kupiec 1995; Christoffersen 1998; Rockafellar &
-Uryasev 2000; Black & Litterman 1992) — the contribution is the
+As of 0.2.0 this is the complete toolkit — the earlier public core
+plus the modules that were initially held back (monitoring, tax,
+Monte Carlo, factors, tactical, ALM, derivatives, data, reporting),
+each verified before release; see VALIDATION.md for the 0.2.0
+verification record. What is not in this repo, by design: broker
+credentials, live account data, and the Sentinel web application
+that consumes this library. The algorithms are standard textbook
+methods (Kupiec 1995; Christoffersen 1998; Rockafellar & Uryasev
+2000; Black & Litterman 1992) — the contribution is the
 implementation discipline and the validation suite.
 
 ## Citation

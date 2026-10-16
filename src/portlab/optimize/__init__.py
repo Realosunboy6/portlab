@@ -10,6 +10,8 @@ from .objectives import (geometric_frontier, kelly, max_information_ratio,
                          max_omega, max_sortino, min_max_drawdown,
                          min_tracking_error)
 from .resampled import resampled_weights
+from .riskfactor import (allocate_from_returns, exposure_gap,
+                         portfolio_exposures, risk_factor_allocation)
 from .riskparity import equal_risk_contribution, inverse_vol, risk_contributions
 from .robust import (delta_from_se, robust_box_weights,
                      robust_ellipsoid_weights)
