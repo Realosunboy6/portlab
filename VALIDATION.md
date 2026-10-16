@@ -102,6 +102,10 @@ conditional coverage, not Kupiec alone.
   from the October 2026 real-data audit; the harness is reproducible
   from the anchors and conventions documented above.
 
+0.2.1 (2026-10-16) is a documentation-only patch: the README was
+shortened and rewritten without em or en dashes, per the author's
+style rule. No code changed.
+
 ## The 0.2.0 full release (2026-10-16)
 
 0.1.x was a curated core. 0.2.0 publishes the complete toolkit: the

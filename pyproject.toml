@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "portlab"
-version = "0.2.0"
+version = "0.2.1"
 description = "Portfolio analysis toolkit — risk measurement and VaR backtesting, optimization, Monte Carlo simulation, factor models, tax-aware portfolio management, and daily risk monitoring, with a documented validation record."
 readme = "README.md"
 license = { text = "MIT" }

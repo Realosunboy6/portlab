@@ -4,10 +4,13 @@
 [![Python versions](https://img.shields.io/pypi/pyversions/portlab.svg)](https://pypi.org/project/portlab/)
 [![License: MIT](https://img.shields.io/pypi/l/portlab.svg)](LICENSE)
 
-A portfolio analysis toolkit for Python, built on one principle: **a
-risk number you cannot backtest is an opinion.** Every estimator is
-cross-checked against an independent implementation, and the tests
-that pin its conventions down ship with the package — see
+portlab is the complete portfolio analysis toolkit: risk measurement
+and VaR backtesting, optimization, Monte Carlo simulation, factor
+models, tax-aware portfolio management, and daily risk monitoring,
+in one Python package. It is built on one principle: **a risk number
+you cannot backtest is an opinion.** Every estimator is cross-checked
+against an independent implementation, and the tests that pin its
+conventions down ship with the package. See
 [VALIDATION.md](VALIDATION.md) for the record, including the defects
 that process found and fixed.
 
@@ -38,31 +41,32 @@ print(christoffersen_ind(exc))              # gap-aware independence test
 
 Validation anchor (SPY, through 2026-10-09): n=1,703, 86 exceptions,
 Kupiec LR = 0.0089, Christoffersen LR_ind = 10.589773. SPY passes
-coverage but fails independence — the exceptions bunch in Feb–Apr
+coverage but fails independence: the exceptions bunch in Feb to Apr
 2020. Cite conditional coverage, not Kupiec alone. Reproduction
 code is in VALIDATION.md.
 
 ## What's inside
 
-- **Risk** — `risk.var`, `risk.backtest`, `risk.tail`, `risk.regime`:
-  VaR/ES (historical, parametric, EWMA, GARCH), Kupiec/Christoffersen
-  backtests, Basel traffic light, tail diagnostics, regimes
-- **Optimization** — `optimize`, `mpo`: max-Sharpe/GMV frontiers,
-  min-CVaR/CDaR, Black–Litterman, HRP, risk parity, robust weights,
-  multi-period optimization with transaction costs
-- **Simulation** — `montecarlo`, `scenarios`, `stress`: seeded Monte
+- **Risk:** `risk.var`, `risk.backtest`, `risk.tail`, `risk.regime`.
+  VaR/ES (historical, parametric, EWMA, GARCH), Kupiec and
+  Christoffersen backtests, Basel traffic light, tail diagnostics,
+  regimes.
+- **Optimization:** `optimize`, `mpo`. Max-Sharpe and GMV frontiers,
+  min-CVaR/CDaR, Black-Litterman, HRP, risk parity, robust weights,
+  multi-period optimization with transaction costs.
+- **Simulation:** `montecarlo`, `scenarios`, `stress`. Seeded Monte
   Carlo with withdrawal rules, filtered historical simulation,
-  historical-episode stress
-- **Factors & signals** — `factor`, `analytics`, `forecast`,
-  `indicators`, `tactical`: factor regressions, PCA, cointegration,
-  ARIMA/ETS forecasts, technical indicators, tactical allocation
-- **Portfolio operations** — `taxlots`, `taxopt`, `corpactions`,
-  `costs`, `attribution`, `rebalance`: tax-lot ledger and tax-aware
-  optimization, corporate actions, cost models, Brinson attribution
-- **Monitoring & output** — `risk.monitor`, `data`, `derivatives`,
-  `alm`, `report`, `plots`: fills-to-risk-report daily watcher
+  historical-episode stress.
+- **Factors and signals:** `factor`, `analytics`, `forecast`,
+  `indicators`, `tactical`. Factor regressions, PCA, cointegration,
+  ARIMA/ETS forecasts, technical indicators, tactical allocation.
+- **Portfolio operations:** `taxlots`, `taxopt`, `corpactions`,
+  `costs`, `attribution`, `rebalance`. Tax-lot ledger and tax-aware
+  optimization, corporate actions, cost models, Brinson attribution.
+- **Monitoring and output:** `risk.monitor`, `data`, `derivatives`,
+  `alm`, `report`, `plots`. Fills-to-risk-report daily watcher
   (RiskLens), data loaders, options pricing, liability-driven
-  investing, tear sheets and charts
+  investing, tear sheets and charts.
 
 ## Conventions
 
@@ -82,9 +86,9 @@ repository" button reads the same file).
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT. See [LICENSE](LICENSE).
 
 ## Author
 
-Ibrahim Oyeyinka — PhD candidate, Industrial & Systems Engineering,
+Ibrahim Oyeyinka, PhD candidate, Industrial & Systems Engineering,
 Northern Illinois University.

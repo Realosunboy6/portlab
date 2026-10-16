@@ -6,7 +6,7 @@ High-level API:
     from portlab import factor, analytics, tactical, plots
 """
 
-__version__ = "0.2.0"
+__version__ = "0.2.1"
 
 from . import (analytics, backtest, covariance, factor, metrics, montecarlo,
                optimize, plots, report, returns, tactical, alm, derivatives,
